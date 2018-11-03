@@ -22,13 +22,4 @@ function inOrderTraversal(tree) {
   if (tree.right) inOrderTraversal(tree.right);
 }
 
-// inOrderTraversal(tree);
-
-const temp = {}
-temp.hi = tree.left.left
-tree.left.left = tree.left.right; 
-tree.left.left.value = 2; 
-console.log(tree.left.left)
-// tree.left.right = temp; 
-// console.log(tree.left)
-console.log(temp)
+// Next, try swap nodes

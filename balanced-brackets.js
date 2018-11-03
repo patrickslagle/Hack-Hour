@@ -14,4 +14,4 @@ function balancedBrackets(brackets) {
   return bracketStack.length === 0; 
 }
 
-console.log(balancedBrackets('[{[]})]a()'))
+console.log(balancedBrackets('[{[]}]a()'))
