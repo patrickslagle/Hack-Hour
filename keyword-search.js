@@ -22,8 +22,22 @@
 // keywords = ['she', 'sits', 'shines']
 // # Output: [11, 17]
 
+/**
+ * @description - takes an array of words, and an array of keywords, and returns an array of
+ * indices where a sequence started. A sequence is a list of subsequent keywords. In order
+ * to be considered a sequence, each keyword must be used once, and only once. 
+ * For Ex:
+ * search_list = ['hello', 'hi', 'hi', 'greetings', 'hi', 'greetings', 'hey', 'hi']
+ * keywords = ['hi', 'hey', 'greetings']
+ * Output: [4, 5]
+ * At index 4, you get the full sequence ('hi', 'greetings', 'hey')
+ * At index 5, you also get the full sequence ('greetings', 'hey', 'hi')
+ * @param {Array} wordList - an array of words that are in string format
+ * @param {Array} keyWords - an array of keywords that are in string formate
+ * @returns {Array} - an array of numbers representing the indices at which a sequence started
+ */
 function searchSequence(wordList, keyWords) {
-  const keyWordsSet = new Set(keyWords)
+  const keyWordsSet = new Set(keyWords);
   const potentialSequences = {};
   const sequences = [];
   // iterate through wordList
@@ -47,7 +61,6 @@ function searchSequence(wordList, keyWords) {
     }
     // if the word matches a word in wordlist, add it to potentialSequences to check if it is a sequence
     if (keyWordsSet.has(wordList[i])) {
-      console.log('has')
       potentialSequences[i] = new Set(keyWords)
       potentialSequences[i].delete(wordList[i])
     }
@@ -55,12 +68,3 @@ function searchSequence(wordList, keyWords) {
   // return a list of the indices where there were a sequence of all the keywords
   return sequences;
 }
-
-search_list = ['peter', 'piper', 'picked', 'a', 'peck', 'of', 'pickled', 'peppers', 'a',
-               'peck', 'of', 'pickled', 'peppers', 'peter', 'piper', 'picked', 'if',
-               'peter', 'piper', 'picked', 'a', 'peck', 'of', 'pickled', 'peppers',
-               'wheres', 'the', 'peck', 'of', 'pickled', 'peppers', 'peter', 'piper', 'picked']
-keywords = ['a', 'peter', 'picked', 'piper']
-// # Output: [0, 17]
-
-console.log(searchSequence(search_list, keywords))
