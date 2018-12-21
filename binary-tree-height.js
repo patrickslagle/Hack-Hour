@@ -18,14 +18,14 @@ tree.right.left.right.right = new Tree(80)
 
 function findHeight(tree) {
   let LH = 0;
-  let RH = 0; 
+  let RH = 0;
   if (tree.left) {
     LH += findHeight(tree.left) + 1;
   }
   if (tree.right) {
     RH += findHeight(tree.right) + 1;
   }
-  return Math.max(LH, RH)
+  return Math.max(LH, RH);
 }
 
 console.log(findHeight(tree));
