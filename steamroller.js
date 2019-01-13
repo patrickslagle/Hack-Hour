@@ -6,15 +6,11 @@
 // steamrollArray([1, {}, [3, [[4]]]]) should return [1, {}, 3, 4].
 
 function steamrollArray(arr) {
-  // I'm a steamroller, baby
-  let test = []
-  arr.forEach((ele) => {
-    if (Array.isArray(ele)) test = test.concat(steamrollArray(ele));
-    else test.push(ele);
-  });
-  return test;
+  return arr.reduce((ac, cv) => {
+    if (Array.isArray(cv)) return (ac.concat(steamrollArray(cv)));
+    ac.push(cv);
+    return ac;
+  }, []);
 }
-
-console.log([].concat(...[1, [2]]))
 
 console.log(steamrollArray([1, [2], {}, [3, [[4]]]]));
